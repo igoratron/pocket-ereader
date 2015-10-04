@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<ul class="article-list">
+  {% for id, article in articles %}
+    <li class="article-list_item">
+      <a href="/article/{{id}}">
+        <h1>{{article.resolved_title}}</h1>
+        <p>{{article.excerpt}}</p>
+      </a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

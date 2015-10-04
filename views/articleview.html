@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <article class="article">
+    <h1>{{article.title}}</h1>
+    <div>
+      {{article.content | safe}}
+    </div>
+  </article>
+{% endblock %}

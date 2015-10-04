@@ -1,0 +1,11 @@
+CACHE MANIFEST
+# {{ cacheVersion }}
+
+CACHE:
+/css/style.css
+{% for url in articleUrls -%}
+{{url}}
+{% endfor %}
+
+NETWORK:
+*

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" manifest="/pocket.appcache">
+<head>
+  <meta charset="UTF-8">
+  <title>Pocket for eReader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="progress-bar" class="progress"></div>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <script>
+    var progressBar = document.getElementById('progress-bar');
+    window.applicationCache.addEventListener('progress', function(event) {
+      var percentage = 100 * event.loaded / event.total
+      progressBar.style.width = percentage + '%';
+    });
+    window.applicationCache.addEventListener('error', function(event) {
+      alert([
+        event.message,
+        event.reason,
+        event.status,
+        event.type,
+        event.url
+      ].join('< \n'));
+    });
+  </script>
+</body>
+</html>
